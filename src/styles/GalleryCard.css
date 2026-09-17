@@ -1,0 +1,55 @@
+/* ===== Gallery Card ===== */
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+  break-inside: avoid;
+  margin-bottom: 16px;
+  display: block;
+  width: 100%;
+}
+
+.gallery-card__image {
+  width: 100%;
+  height: auto;
+  transition: transform var(--t-slow);
+}
+
+.gallery-card:hover .gallery-card__image {
+  transform: scale(1.1);
+}
+
+.gallery-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(27, 58, 43, 0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity var(--t);
+}
+
+.gallery-card:hover .gallery-card__overlay {
+  opacity: 1;
+}
+
+.gallery-card__category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sage-light);
+  margin-bottom: 4px;
+}
+
+.gallery-card__title {
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}

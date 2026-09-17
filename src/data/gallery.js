@@ -1,0 +1,121 @@
+export const galleryCategories = [
+  "All",
+  "Plants",
+  "Flowers",
+  "Trees",
+  "Garden",
+  "Nursery",
+  "Landscaping",
+];
+
+export const galleryImages = [
+  {
+    id: 1,
+    category: "Nursery",
+    title: "Greenhouse Interior",
+    url: "https://images.pexels.com/photos/6508965/pexels-photo-6508965.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 2,
+    category: "Flowers",
+    title: "Red Roses in Bloom",
+    url: "https://images.pexels.com/photos/38485139/pexels-photo-38485139.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 3,
+    category: "Plants",
+    title: "Indoor Potted Plants",
+    url: "https://images.pexels.com/photos/4505144/pexels-photo-4505144.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 4,
+    category: "Trees",
+    title: "Tropical Palm",
+    url: "https://images.pexels.com/photos/12366649/pexels-photo-12366649.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 5,
+    category: "Flowers",
+    title: "Pink Hibiscus",
+    url: "https://images.pexels.com/photos/39466670/pexels-photo-39466670.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 6,
+    category: "Nursery",
+    title: "Rows of Plants",
+    url: "https://images.pexels.com/photos/5781628/pexels-photo-5781628.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 7,
+    category: "Garden",
+    title: "Flower Garden",
+    url: "https://images.pexels.com/photos/4944058/pexels-photo-4944058.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 8,
+    category: "Flowers",
+    title: "White Jasmine",
+    url: "https://images.pexels.com/photos/9148253/pexels-photo-9148253.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 9,
+    category: "Plants",
+    title: "Aloe Vera",
+    url: "https://images.pexels.com/photos/7408838/pexels-photo-7408838.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 10,
+    category: "Landscaping",
+    title: "Lush Greenhouse",
+    url: "https://images.pexels.com/photos/13384736/pexels-photo-13384736.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 11,
+    category: "Flowers",
+    title: "Bougainvillea Display",
+    url: "https://images.pexels.com/photos/12401782/pexels-photo-12401782.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 12,
+    category: "Garden",
+    title: "Colourful Garden Beds",
+    url: "https://images.pexels.com/photos/13610690/pexels-photo-13610690.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 13,
+    category: "Nursery",
+    title: "Hanging Baskets",
+    url: "https://images.pexels.com/photos/31665672/pexels-photo-31665672.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 14,
+    category: "Flowers",
+    title: "Orange Marigolds",
+    url: "https://images.pexels.com/photos/17006728/pexels-photo-17006728.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 15,
+    category: "Trees",
+    category2: "Fruit Plants",
+    title: "Mango Orchard",
+    url: "https://images.pexels.com/photos/11760088/pexels-photo-11760088.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 16,
+    category: "Plants",
+    title: "Snake Plant",
+    url: "https://images.pexels.com/photos/29218657/pexels-photo-29218657.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 17,
+    category: "Garden",
+    title: "Vibrant Flower Garden",
+    url: "https://images.pexels.com/photos/8176089/pexels-photo-8176089.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+  {
+    id: 18,
+    category: "Landscaping",
+    title: "Indoor Garden Pathway",
+    url: "https://images.pexels.com/photos/35457222/pexels-photo-35457222.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+  },
+];

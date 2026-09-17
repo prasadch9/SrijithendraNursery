@@ -1,0 +1,62 @@
+/* ===== Location ===== */
+.location-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.location-info__item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--t);
+}
+
+.location-info__item:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.location-info__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--sage-light);
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+.location-info__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.location-info__value {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .location-layout { grid-template-columns: 1fr; }
+}

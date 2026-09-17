@@ -1,0 +1,55 @@
+/* ===== Map Location ===== */
+.map-location {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.map-location__buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.map-location__embed {
+  width: 100%;
+  height: 420px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--light-beige);
+}
+
+.map-location__embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+.map-location__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: var(--text-muted);
+  gap: 8px;
+}
+
+.map-location__placeholder-hint {
+  font-size: 0.85rem;
+}
+
+.map-location__placeholder code {
+  background: var(--cream);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 768px) {
+  .map-location__embed { height: 320px; }
+  .map-location__embed iframe { min-height: 320px; }
+}
