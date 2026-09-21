@@ -11,9 +11,9 @@ export const site = {
     "To, Veeravaram Rd, Kadiam, Veeravaram, Andhra Pradesh 533126",
 
   // Add actual details when available
-  phone: "",
+  phone: "9381608126",
 
-  email: "",
+  email: "chinnakamireddy6@gmail.com",
 
   hours: "Monday - Sunday, 8:00 AM - 8:00 PM",
 

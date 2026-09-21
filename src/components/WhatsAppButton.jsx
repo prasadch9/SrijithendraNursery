@@ -5,7 +5,7 @@ import "../styles/WhatsAppButton.css";
 export default function WhatsAppButton() {
   return (
     <a
-      href={whatsappLink("Hello Sri Jithendra Nursery, I would like to know more about your plants.")}
+      href={"https://wa.me/919381608126(Hello Sri Jithendra Nursery, I would like to know more about your plants.)"}
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-fab"

@@ -20,18 +20,18 @@ export default function Footer() {
             beautiful greenery for your home and garden.
           </p>
           <div className="footer__social">
-            <a href={site.social.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <a href="https://wa.me/919381608126" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
               <MessageCircle size={18} />
             </a>
-            <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/srijithendranursey_veeravaram/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram size={18} />
             </a>
-            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61594766455124" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <Facebook size={18} />
             </a>
-            <a href={site.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            {/* <a href={site.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <Youtube size={18} />
-            </a>
+            </a> */}
           </div>
         </div>
 
