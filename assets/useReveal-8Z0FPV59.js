@@ -1,0 +1,1 @@
+import{r}from"./index-tySl86U9.js";function f(o={}){const t=r.useRef(null),[i,u]=r.useState(!1);return r.useEffect(()=>{const s=t.current;if(!s)return;const e=new IntersectionObserver(([n])=>{n.isIntersecting&&(u(!0),e.unobserve(n.target))},{threshold:.12,rootMargin:"0px 0px -40px 0px",...o});return e.observe(s),()=>e.disconnect()},[]),{ref:t,visible:i}}export{f as u};
