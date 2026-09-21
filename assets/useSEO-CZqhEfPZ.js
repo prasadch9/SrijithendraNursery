@@ -1,1 +1,0 @@
-import{r as n}from"./index-tySl86U9.js";function o(t,m){n.useEffect(()=>{if(t&&(document.title=t),m){let e=document.querySelector('meta[name="description"]');e||(e=document.createElement("meta"),e.name="description",document.head.appendChild(e)),e.content=m}},[t,m])}export{o as u};
