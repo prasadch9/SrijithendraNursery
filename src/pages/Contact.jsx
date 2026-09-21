@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -14,6 +15,60 @@ import {
 import { site, whatsappLink } from "../data/site";
 import useSEO from "../hooks/useSEO";
 import "../styles/Contact.css";
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+const leftVariants = {
+  hidden: {
+    opacity: 0,
+    x: -40,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+const rightVariants = {
+  hidden: {
+    opacity: 0,
+    x: 40,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 export default function Contact() {
   useSEO(
@@ -85,7 +140,6 @@ ${form.message}`;
       value: site.hours,
     },
 
-    // Show phone only when a real number is available
     ...(site.phone
       ? [
           {
@@ -96,7 +150,6 @@ ${form.message}`;
         ]
       : []),
 
-    // Show email only when a real email is available
     ...(site.email
       ? [
           {
@@ -110,106 +163,208 @@ ${form.message}`;
 
   return (
     <>
-      {/* Page Hero */}
+      {/* =========================
+          PAGE HERO
+      ========================== */}
       <section className="page-hero">
         <div className="page-hero__pattern"></div>
 
-        <div className="page-hero__content">
-          <span className="page-hero__eyebrow">SRI JITHENDRA NURSERY</span>
+        <motion.div
+          className="page-hero__content"
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+        >
+          <motion.span
+            className="page-hero__eyebrow"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.1,
+            }}
+          >
+            SRI JITHENDRA NURSERY
+          </motion.span>
 
-          <h1>Contact Us</h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.2,
+            }}
+          >
+            Contact Us
+          </motion.h1>
 
-          <p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.35,
+            }}
+          >
             Have a question about plants or gardening?
             We would love to hear from you.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
-      {/* Contact Section */}
+      {/* =========================
+          CONTACT SECTION
+      ========================== */}
       <section className="section contact-section">
         <div className="container">
-
           <div className="contact-layout">
 
             {/* =========================
                 LEFT SIDE
             ========================== */}
-            <div className="contact-info">
-
-              <span className="section-eyebrow">
+            <motion.div
+              className="contact-info"
+              variants={leftVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+            >
+              <motion.span
+                className="section-eyebrow"
+                variants={itemVariants}
+              >
                 GET IN TOUCH
-              </span>
+              </motion.span>
 
-              <h2>We'd Love to Hear From You</h2>
+              <motion.h2 variants={itemVariants}>
+                We'd Love to Hear From You
+              </motion.h2>
 
-              <p className="contact-info__intro">
+              <motion.p
+                className="contact-info__intro"
+                variants={itemVariants}
+              >
                 Whether you are looking for a specific plant, need
                 gardening advice, or want to place a bulk order,
                 our team is happy to help.
-              </p>
+              </motion.p>
 
               {/* Information Cards */}
-              <div className="contact-info__items">
-
+              <motion.div
+                className="contact-info__items"
+                variants={staggerContainer}
+              >
                 {infoItems.map((item, index) => {
                   const Icon = item.icon;
 
                   return (
-                    <div
+                    <motion.div
                       className="contact-info__item"
                       key={`${item.label}-${index}`}
+                      variants={itemVariants}
+                      whileHover={{
+                        x: 5,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                        ease: "easeOut",
+                      }}
                     >
-                      <div className="contact-info__icon">
-                        <Icon size={21} strokeWidth={1.8} />
-                      </div>
+                      <motion.div
+                        className="contact-info__icon"
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 250,
+                        }}
+                      >
+                        <Icon
+                          size={21}
+                          strokeWidth={1.8}
+                        />
+                      </motion.div>
 
                       <div className="contact-info__text">
                         <h4>{item.label}</h4>
 
                         <p>{item.value}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
-
-              </div>
+              </motion.div>
 
               {/* WhatsApp */}
               {site.whatsapp && (
-                <a
+                <motion.a
                   href={whatsappLink(
                     "Hello Sri Jithendra Nursery, I would like to know more about your plants."
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--whatsapp"
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -3,
+                    scale: 1.02,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
                 >
                   <MessageCircle size={18} />
                   WhatsApp Us
-                </a>
+                </motion.a>
               )}
 
               {/* Directions */}
               {site.mapsDirectionsUrl && (
-                <a
+                <motion.a
                   href={site.mapsDirectionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--outline"
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -3,
+                    scale: 1.02,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
                 >
                   <Navigation size={18} />
                   Get Directions
-                </a>
+                </motion.a>
               )}
-            </div>
+            </motion.div>
 
             {/* =========================
                 RIGHT SIDE - FORM
             ========================== */}
-            <div className="contact-form-wrap">
-
-              <div className="contact-form-header">
+            <motion.div
+              className="contact-form-wrap"
+              variants={rightVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+            >
+              <motion.div
+                className="contact-form-header"
+                variants={itemVariants}
+              >
                 <span className="section-eyebrow">
                   ENQUIRY
                 </span>
@@ -220,31 +375,59 @@ ${form.message}`;
                   Tell us what you are looking for and
                   we will be happy to assist you.
                 </p>
-              </div>
+              </motion.div>
 
-              {/* Success Message */}
-              {sent && (
-                <div
-                  className="contact-form__success"
-                  role="status"
-                >
-                  <Check size={19} />
+              {/* =========================
+                  SUCCESS MESSAGE
+              ========================== */}
+              <AnimatePresence>
+                {sent && (
+                  <motion.div
+                    className="contact-form__success"
+                    role="status"
+                    initial={{
+                      opacity: 0,
+                      y: -15,
+                      scale: 0.97,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -10,
+                      scale: 0.97,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      ease: "easeOut",
+                    }}
+                  >
+                    <Check size={19} />
 
-                  <span>
-                    Thank you! Your enquiry has been
-                    forwarded to WhatsApp.
-                  </span>
-                </div>
-              )}
+                    <span>
+                      Thank you! Your enquiry has been
+                      forwarded to WhatsApp.
+                    </span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-              {/* Form */}
-              <form
+              {/* =========================
+                  FORM
+              ========================== */}
+              <motion.form
                 className="contact-form"
                 onSubmit={handleSubmit}
+                variants={staggerContainer}
               >
-
                 {/* Name */}
-                <div className="contact-form__field">
+                <motion.div
+                  className="contact-form__field"
+                  variants={itemVariants}
+                >
                   <label htmlFor="name">
                     Name <span>*</span>
                   </label>
@@ -259,11 +442,13 @@ ${form.message}`;
                     autoComplete="name"
                     placeholder="Enter your name"
                   />
-                </div>
+                </motion.div>
 
                 {/* Phone + Email */}
-                <div className="contact-form__row">
-
+                <motion.div
+                  className="contact-form__row"
+                  variants={itemVariants}
+                >
                   <div className="contact-form__field">
                     <label htmlFor="phone">
                       Phone <span>*</span>
@@ -296,11 +481,13 @@ ${form.message}`;
                       placeholder="Enter email address"
                     />
                   </div>
-
-                </div>
+                </motion.div>
 
                 {/* Message */}
-                <div className="contact-form__field">
+                <motion.div
+                  className="contact-form__field"
+                  variants={itemVariants}
+                >
                   <label htmlFor="message">
                     Message <span>*</span>
                   </label>
@@ -314,19 +501,26 @@ ${form.message}`;
                     rows={6}
                     placeholder="Tell us how we can help you..."
                   />
-                </div>
+                </motion.div>
 
                 {/* Submit */}
-                <button
+                <motion.button
                   type="submit"
                   className="btn btn--primary btn--large contact-form__submit"
+                  variants={itemVariants}
+                  whileHover={{
+                    y: -3,
+                    scale: 1.02,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
                 >
                   <Send size={18} />
                   Send Enquiry
-                </button>
-
-              </form>
-            </div>
+                </motion.button>
+              </motion.form>
+            </motion.div>
 
           </div>
         </div>
@@ -334,4 +528,3 @@ ${form.message}`;
     </>
   );
 }
-
