@@ -1,4 +1,8 @@
-/* ===== Navbar ===== */
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -20,21 +24,31 @@
   margin: 0 auto;
   padding: 0 24px;
   height: 72px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 24px;
 }
 
-/* Logo */
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
 .navbar__logo {
   display: flex;
   align-items: center;
+
   gap: 10px;
+
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 700;
+
   color: var(--primary-dark);
+
   transition: color var(--t);
 }
 
@@ -42,24 +56,46 @@
   color: var(--white);
 }
 
+
+/* Logo image container */
+
 .navbar__logo-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: var(--white);
+
+  width: 48px;
+  height: 48px;
+
   flex-shrink: 0;
+
+  overflow: hidden;
 }
 
-.navbar--transparent .navbar__logo-icon {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+
+/* Actual logo image */
+
+.navbar__logo-image {
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+
+  display: block;
 }
 
-/* Links */
+
+/* Logo text */
+
+.navbar__logo-text {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   DESKTOP LINKS
+   ========================================================= */
+
 .navbar__links {
   display: flex;
   align-items: center;
@@ -68,11 +104,16 @@
 
 .navbar__link {
   padding: 8px 14px;
+
   font-size: 0.92rem;
   font-weight: 500;
+
   color: var(--charcoal);
+
   border-radius: var(--radius-full);
+
   position: relative;
+
   transition: all var(--t);
 }
 
@@ -99,19 +140,32 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* CTA */
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
 .navbar__cta {
   flex-shrink: 0;
 }
 
-/* Toggle */
+
+/* =========================================================
+   MOBILE TOGGLE
+   ========================================================= */
+
 .navbar__toggle {
   display: none;
+
   background: none;
   border: none;
+
   cursor: pointer;
+
   color: var(--primary-dark);
+
   padding: 8px;
+
   transition: color var(--t);
 }
 
@@ -119,19 +173,31 @@
   color: var(--white);
 }
 
-/* ===== Mobile drawer ===== */
+
+/* =========================================================
+   MOBILE DRAWER
+   ========================================================= */
+
 .drawer {
   position: fixed;
+
   top: 0;
   right: -320px;
+
   width: 300px;
   height: 100vh;
+
   background: var(--cream);
+
   z-index: 999;
+
   box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+
   transition: right var(--t);
+
   display: flex;
   align-items: center;
+
   padding: 80px 24px 24px;
 }
 
@@ -141,17 +207,24 @@
 
 .drawer__nav {
   display: flex;
+
   flex-direction: column;
+
   gap: 8px;
+
   width: 100%;
 }
 
 .drawer__link {
   padding: 14px 16px;
+
   font-size: 1rem;
   font-weight: 500;
+
   color: var(--charcoal);
+
   border-radius: var(--radius);
+
   transition: all var(--t-fast);
 }
 
@@ -163,20 +236,109 @@
 
 .drawer__cta {
   margin-top: 16px;
+
   width: 100%;
 }
 
+
+/* =========================================================
+   MOBILE OVERLAY
+   ========================================================= */
+
 .drawer__overlay {
   position: fixed;
+
   inset: 0;
+
   background: rgba(27, 58, 43, 0.4);
+
   z-index: 998;
+
   backdrop-filter: blur(2px);
 }
 
-/* ===== Responsive ===== */
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (max-width: 1024px) {
-  .navbar__links { display: none; }
-  .navbar__cta { display: none; }
-  .navbar__toggle { display: flex; }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__cta {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
 }
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .navbar__inner {
+    height: 68px;
+
+    padding: 0 16px;
+
+    gap: 12px;
+  }
+
+  .navbar__logo {
+    gap: 8px;
+
+    font-size: 1.1rem;
+  }
+
+  .navbar__logo-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar__logo-image {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar__toggle {
+    padding: 7px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .navbar__logo {
+    font-size: 1rem;
+  }
+
+  .navbar__logo-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navbar__logo-image {
+    width: 38px;
+    height: 38px;
+  }
+
+  .navbar__inner {
+    padding: 0 12px;
+  }
+
+}
+

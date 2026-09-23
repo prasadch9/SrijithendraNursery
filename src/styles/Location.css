@@ -1,62 +1,454 @@
-/* ===== Location ===== */
-.location-layout {
+/* =========================================
+   LOCATION PAGE
+========================================= */
+
+.location-page-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.location-page-hero::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  right: -150px;
+  top: -180px;
+}
+
+.location-hero-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.locations-section {
+  background: #f7faf6;
+}
+
+.location-section-heading {
+  max-width: 650px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.location-section-heading span {
+  display: inline-block;
+  color: #397b4d;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.location-section-heading h2 {
+  font-family: "Playfair Display", serif;
+  color: #1d3c27;
+  font-size: clamp(36px, 5vw, 54px);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.location-section-heading p {
+  color: #68736b;
+  font-size: 15px;
+}
+
+/* =========================================
+   TWO BRANCH GRID
+========================================= */
+
+.branches-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
 }
 
-.location-info {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+/* =========================================
+   BRANCH CARD
+========================================= */
+
+.branch-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #e5ebe4;
+  box-shadow: 0 15px 45px rgba(26, 65, 39, 0.08);
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
 }
 
-.location-info__item {
+.branch-card:hover {
+  box-shadow: 0 25px 60px rgba(26, 65, 39, 0.14);
+}
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.branch-card__header {
   display: flex;
+  align-items: center;
   gap: 16px;
-  align-items: flex-start;
-  padding: 20px;
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--t);
+  padding: 25px 26px 20px;
 }
 
-.location-info__item:hover {
-  box-shadow: var(--shadow);
-  transform: translateY(-2px);
-}
+.branch-number {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
 
-.location-info__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--sage-light);
-  color: var(--primary-dark);
-  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #2f7545,
+    #1d5732
+  );
+
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+
+  box-shadow: 0 8px 20px rgba(47, 117, 69, 0.2);
 }
 
-.location-info__label {
-  font-size: 0.8rem;
+.branch-label {
+  display: block;
+  color: #4d8b5d;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin-bottom: 4px;
-  font-family: var(--font-body);
-  font-weight: 600;
+  letter-spacing: 1.8px;
+  font-size: 10px;
+  font-weight: 800;
+  margin-bottom: 3px;
 }
 
-.location-info__value {
-  font-size: 1rem;
-  color: var(--text);
-  font-weight: 500;
-  line-height: 1.5;
+.branch-card__header h3 {
+  color: #1d3c27;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  line-height: 1.2;
 }
+
+/* =========================================
+   MAP
+========================================= */
+
+.branch-map {
+  width: 100%;
+  height: 310px;
+  background: #e9eee9;
+  overflow: hidden;
+}
+
+.branch-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.branch-details {
+  padding: 25px 26px 5px;
+}
+
+.branch-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid #edf1ed;
+}
+
+.branch-detail:last-child {
+  border-bottom: none;
+}
+
+.branch-detail__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #edf7ef;
+  color: #2d7545;
+}
+
+.branch-detail span {
+  display: block;
+  color: #7a847c;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+
+.branch-detail p,
+.branch-detail a {
+  color: #293b2e;
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.branch-detail a {
+  transition: 0.25s;
+}
+
+.branch-detail a:hover {
+  color: #2d7545;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.branch-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 12px;
+  padding: 22px 26px 28px;
+}
+
+.branch-btn {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: 0.25s;
+}
+
+.branch-btn--call {
+  background: #edf7ef;
+  color: #28683c;
+  border: 1px solid #d9eadc;
+}
+
+.branch-btn--call:hover {
+  background: #dff0e2;
+}
+
+.branch-btn--direction {
+  background: #28683c;
+  color: white;
+  box-shadow: 0 8px 20px rgba(40, 104, 60, 0.18);
+}
+
+.branch-btn--direction:hover {
+  background: #1f5731;
+}
+
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 900px) {
-  .location-layout { grid-template-columns: 1fr; }
+
+  .branches-grid {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .branch-map {
+    height: 340px;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .location-section-heading {
+    margin-bottom: 35px;
+  }
+
+  .location-section-heading h2 {
+    font-size: 38px;
+  }
+
+  .branches-grid {
+    gap: 22px;
+  }
+
+  .branch-card {
+    border-radius: 14px;
+  }
+
+  .branch-card__header {
+    padding: 20px 18px 17px;
+  }
+
+  .branch-number {
+    width: 43px;
+    height: 43px;
+    border-radius: 11px;
+  }
+
+  .branch-card__header h3 {
+    font-size: 21px;
+  }
+
+  .branch-map {
+    height: 270px;
+  }
+
+  .branch-details {
+    padding: 18px 18px 4px;
+  }
+
+  .branch-detail {
+    gap: 11px;
+    padding: 13px 0;
+  }
+
+  .branch-detail__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .branch-detail p,
+  .branch-detail a {
+    font-size: 13px;
+  }
+
+  .branch-actions {
+    padding: 18px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .branch-btn {
+    min-height: 46px;
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 380px) {
+
+  .branch-actions {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================
+   LOCATION PAGE - FINAL POLISH
+========================================= */
+
+.branch-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.branch-card__header {
+  min-height: 92px;
+}
+
+.branch-map {
+  border-top: 1px solid #edf1ed;
+  border-bottom: 1px solid #edf1ed;
+}
+
+.branch-details {
+  flex: 1;
+}
+
+/* Smooth card animation */
+.branch-card {
+  transform: translateY(0);
+}
+
+.branch-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Phone number styling */
+.branch-detail a[href^="tel:"] {
+  font-weight: 700;
+  color: #28683c;
+}
+
+.branch-detail a[href^="tel:"]:hover {
+  color: #174d29;
+}
+
+/* Better map appearance */
+.branch-map iframe {
+  transition: transform 0.5s ease;
+}
+
+.branch-card:hover .branch-map iframe {
+  transform: scale(1.015);
+}
+
+/* Better button hover */
+.branch-btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.branch-btn--call:hover {
+  transform: translateY(-2px);
+}
+
+.branch-btn--direction:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile map */
+@media (max-width: 600px) {
+  .branch-card__header {
+    min-height: auto;
+  }
+
+  .branch-map {
+    height: 260px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .branch-map {
+    height: 230px;
+  }
+
+  .branch-actions {
+    grid-template-columns: 1fr;
+  }
 }

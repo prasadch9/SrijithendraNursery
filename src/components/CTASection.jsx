@@ -18,8 +18,13 @@ export default function CTASection() {
         </p>
         <div className="cta__buttons">
           <Link to="/plants" className="btn btn--primary btn--large">Explore Plants</Link>
-          <Link to="/location" className="btn btn--outline-light btn--large">Visit Nursery</Link>
-        </div>
+          <a
+  href="/location"
+  className="btn btn--outline-light btn--large"
+>
+  Visit Nursery
+</a>
+</div>
       </div>
     </section>
   );

@@ -85,6 +85,34 @@ export default function Contact() {
 
   const [sent, setSent] = useState(false);
 
+  /* =========================
+     NURSERY LOCATIONS
+  ========================== */
+
+  const locations = [
+    {
+      id: 1,
+      title: "First Nursery Location",
+      address:
+        "To, Veeravaram Rd, Kadiam, Veeravaram, Andhra Pradesh 533126",
+      phone: "9381608126",
+      directions:
+        "https://share.google/23KdH5c9bChJiphM9",
+    },
+    {
+      id: 2,
+      title: "Second Nursery Location",
+      address: "VRFJ+JPP, Madiki, Andhra Pradesh",
+      phone: "9701138021",
+      directions:
+        "https://www.google.com/maps/dir/?api=1&destination=16.8740833,81.8318333",
+    },
+  ];
+
+  /* =========================
+     FORM CHANGE
+  ========================== */
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -93,6 +121,10 @@ export default function Contact() {
       [name]: value,
     }));
   };
+
+  /* =========================
+     FORM SUBMIT
+  ========================== */
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -107,7 +139,11 @@ Message:
 ${form.message}`;
 
     if (site.whatsapp) {
-      window.open(whatsappLink(msg), "_blank", "noopener,noreferrer");
+      window.open(
+        whatsappLink(msg),
+        "_blank",
+        "noopener,noreferrer"
+      );
 
       setSent(true);
 
@@ -128,44 +164,12 @@ ${form.message}`;
     }
   };
 
-  const infoItems = [
-    {
-      icon: MapPin,
-      label: "Address",
-      value: site.address,
-    },
-    {
-      icon: Clock,
-      label: "Opening Hours",
-      value: site.hours,
-    },
-
-    ...(site.phone
-      ? [
-          {
-            icon: Phone,
-            label: "Phone",
-            value: site.phone,
-          },
-        ]
-      : []),
-
-    ...(site.email
-      ? [
-          {
-            icon: Mail,
-            label: "Email",
-            value: site.email,
-          },
-        ]
-      : []),
-  ];
-
   return (
     <>
       {/* =========================
           PAGE HERO
       ========================== */}
+
       <section className="page-hero">
         <div className="page-hero__pattern"></div>
 
@@ -218,6 +222,7 @@ ${form.message}`;
       {/* =========================
           CONTACT SECTION
       ========================== */}
+
       <section className="section contact-section">
         <div className="container">
           <div className="contact-layout">
@@ -225,6 +230,7 @@ ${form.message}`;
             {/* =========================
                 LEFT SIDE
             ========================== */}
+
             <motion.div
               className="contact-info"
               variants={leftVariants}
@@ -250,32 +256,37 @@ ${form.message}`;
                 className="contact-info__intro"
                 variants={itemVariants}
               >
-                Whether you are looking for a specific plant, need
-                gardening advice, or want to place a bulk order,
-                our team is happy to help.
+                Whether you are looking for a specific plant,
+                need gardening advice, or want to place a bulk
+                order, our team is happy to help.
               </motion.p>
 
-              {/* Information Cards */}
+              {/* =========================
+                  TWO NURSERY LOCATIONS
+              ========================== */}
+
               <motion.div
-                className="contact-info__items"
+                className="contact-locations"
                 variants={staggerContainer}
               >
-                {infoItems.map((item, index) => {
-                  const Icon = item.icon;
+                {locations.map((location) => (
+                  <motion.div
+                    className="contact-location-card"
+                    key={location.id}
+                    variants={itemVariants}
+                    whileHover={{
+                      y: -5,
+                    }}
+                    transition={{
+                      duration: 0.25,
+                      ease: "easeOut",
+                    }}
+                  >
+                    <h3>{location.title}</h3>
 
-                  return (
-                    <motion.div
-                      className="contact-info__item"
-                      key={`${item.label}-${index}`}
-                      variants={itemVariants}
-                      whileHover={{
-                        x: 5,
-                      }}
-                      transition={{
-                        duration: 0.25,
-                        ease: "easeOut",
-                      }}
-                    >
+                    {/* Address */}
+
+                    <div className="contact-info__item">
                       <motion.div
                         className="contact-info__icon"
                         whileHover={{
@@ -287,23 +298,112 @@ ${form.message}`;
                           stiffness: 250,
                         }}
                       >
-                        <Icon
+                        <MapPin
                           size={21}
                           strokeWidth={1.8}
                         />
                       </motion.div>
 
                       <div className="contact-info__text">
-                        <h4>{item.label}</h4>
+                        <h4>Address</h4>
 
-                        <p>{item.value}</p>
+                        <p>{location.address}</p>
                       </div>
-                    </motion.div>
-                  );
-                })}
+                    </div>
+
+                    {/* Phone */}
+
+                    <div className="contact-info__item">
+                      <motion.div
+                        className="contact-info__icon"
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 250,
+                        }}
+                      >
+                        <Phone
+                          size={21}
+                          strokeWidth={1.8}
+                        />
+                      </motion.div>
+
+                      <div className="contact-info__text">
+                        <h4>Phone</h4>
+
+                        <a
+                          href={`tel:${location.phone}`}
+                        >
+                          {location.phone}
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Directions */}
+
+                    <a
+                      href={location.directions}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-location-directions"
+                    >
+                      <Navigation size={17} />
+                      Get Directions
+                    </a>
+                  </motion.div>
+                ))}
               </motion.div>
 
-              {/* WhatsApp */}
+              {/* =========================
+                  COMMON INFORMATION
+              ========================== */}
+
+              <motion.div
+                className="contact-common-info"
+                variants={staggerContainer}
+              >
+                {/* Opening Hours */}
+
+                <motion.div
+                  className="contact-common-item"
+                  variants={itemVariants}
+                >
+                  <Clock size={20} />
+
+                  <div>
+                    <h4>Opening Hours</h4>
+
+                    <p>{site.hours}</p>
+                  </div>
+                </motion.div>
+
+                {/* Email */}
+
+                <motion.div
+                  className="contact-common-item"
+                  variants={itemVariants}
+                >
+                  <Mail size={20} />
+
+                  <div>
+                    <h4>Email</h4>
+
+                    <a
+                      href={`mailto:${site.email}`}
+                    >
+                      {site.email}
+                    </a>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* =========================
+                  WHATSAPP
+              ========================== */}
+
               {site.whatsapp && (
                 <motion.a
                   href={whatsappLink(
@@ -325,32 +425,12 @@ ${form.message}`;
                   WhatsApp Us
                 </motion.a>
               )}
-
-              {/* Directions */}
-              {site.mapsDirectionsUrl && (
-                <motion.a
-                  href={site.mapsDirectionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--outline"
-                  variants={itemVariants}
-                  whileHover={{
-                    y: -3,
-                    scale: 1.02,
-                  }}
-                  whileTap={{
-                    scale: 0.97,
-                  }}
-                >
-                  <Navigation size={18} />
-                  Get Directions
-                </motion.a>
-              )}
             </motion.div>
 
             {/* =========================
                 RIGHT SIDE - FORM
             ========================== */}
+
             <motion.div
               className="contact-form-wrap"
               variants={rightVariants}
@@ -380,6 +460,7 @@ ${form.message}`;
               {/* =========================
                   SUCCESS MESSAGE
               ========================== */}
+
               <AnimatePresence>
                 {sent && (
                   <motion.div
@@ -418,12 +499,14 @@ ${form.message}`;
               {/* =========================
                   FORM
               ========================== */}
+
               <motion.form
                 className="contact-form"
                 onSubmit={handleSubmit}
                 variants={staggerContainer}
               >
                 {/* Name */}
+
                 <motion.div
                   className="contact-form__field"
                   variants={itemVariants}
@@ -445,6 +528,7 @@ ${form.message}`;
                 </motion.div>
 
                 {/* Phone + Email */}
+
                 <motion.div
                   className="contact-form__row"
                   variants={itemVariants}
@@ -484,6 +568,7 @@ ${form.message}`;
                 </motion.div>
 
                 {/* Message */}
+
                 <motion.div
                   className="contact-form__field"
                   variants={itemVariants}
@@ -504,6 +589,7 @@ ${form.message}`;
                 </motion.div>
 
                 {/* Submit */}
+
                 <motion.button
                   type="submit"
                   className="btn btn--primary btn--large contact-form__submit"
@@ -528,3 +614,4 @@ ${form.message}`;
     </>
   );
 }
+

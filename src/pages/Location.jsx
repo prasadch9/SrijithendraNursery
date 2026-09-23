@@ -1,79 +1,165 @@
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Navigation,
+} from "lucide-react";
 
-import MapLocation from "../components/MapLocation";
 import CTASection from "../components/CTASection";
 import { site } from "../data/site";
 import useSEO from "../hooks/useSEO";
 import "../styles/Location.css";
 
-const itemVariants = {
+const branchVariants = {
   hidden: {
     opacity: 0,
-    x: -35,
+    y: 40,
   },
+
   visible: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: {
-      duration: 0.55,
+      duration: 0.7,
       ease: "easeOut",
     },
   },
 };
 
-const containerVariants = {
-  hidden: {},
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    x: -25,
+  },
+
   visible: {
+    opacity: 1,
+    x: 0,
     transition: {
-      staggerChildren: 0.12,
+      duration: 0.5,
+      ease: "easeOut",
     },
   },
 };
 
 export default function Location() {
   useSEO(
-    "Visit Sri Jithendra Nursery | Location & Contact",
-    "Find Sri Jithendra Nursery — address, phone, email, opening hours and directions. Visit us for quality plants and friendly guidance."
+    "Visit Sri Jithendra Nursery | Locations & Contact",
+    "Find Sri Jithendra Nursery locations, phone numbers, opening hours and directions."
   );
 
-  const infoItems = [
-    { icon: MapPin, label: "Address", value: site.address },
-    { icon: Phone, label: "Phone", value: site.phone },
-    { icon: Mail, label: "Email", value: site.email },
-    { icon: Clock, label: "Opening Hours", value: site.hours },
+  const branches = [
+    {
+      id: 1,
+
+      name: " Sri Jithendra Nursery",
+
+      subtitle: "First Nursery Location",
+
+      address:
+      "To, Veeravaram Rd, Kadiam, Veeravaram, Andhra Pradesh 533126",
+
+      phone: "9381608126",
+
+      email: site.email,
+
+      hours: site.hours,
+
+      // First nursery Google Maps share link
+      mapUrl:
+        "https://www.google.com/maps?q=Jithendra+Nursery&output=embed",
+
+      directionsUrl:
+        "https://share.google/23KdH5c9bChJiphM9",
+    },
+
+    {
+      id: 2,
+
+      name: "Sri Jithendra Nursery",
+
+      subtitle: "Second Nursery Location",
+
+      address:
+        "VRFJ+JPP, Madiki, Andhra Pradesh",
+
+      phone: "9701138021",
+
+      email: site.email,
+
+      hours: site.hours,
+
+      // Second nursery exact coordinates
+mapUrl:
+  "https://www.google.com/maps?q=16.8740833,81.8318333&output=embed",
+
+directionsUrl:
+  "https://www.google.com/maps/dir/?api=1&destination=16.8740833,81.8318333",
+},
   ];
 
   return (
     <>
-      {/* PAGE HERO */}
-      <section className="page-hero">
+      {/* =====================================
+          PAGE HERO
+      ===================================== */}
+
+      <section className="page-hero location-page-hero">
+
         <div className="page-hero__pattern" />
 
         <motion.div
           className="page-hero__content"
+
           initial={{
             opacity: 0,
             y: 35,
           }}
+
           animate={{
             opacity: 1,
             y: 0,
           }}
+
           transition={{
             duration: 0.8,
             ease: "easeOut",
           }}
         >
+
+          <motion.p
+            className="location-hero-label"
+
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+
+            transition={{
+              duration: 0.6,
+            }}
+          >
+            🌿 FIND US
+          </motion.p>
+
           <motion.h1
             initial={{
               opacity: 0,
               y: 25,
             }}
+
             animate={{
               opacity: 1,
               y: 0,
             }}
+
             transition={{
               duration: 0.7,
               delay: 0.15,
@@ -87,109 +173,317 @@ export default function Location() {
               opacity: 0,
               y: 20,
             }}
+
             animate={{
               opacity: 1,
               y: 0,
             }}
+
             transition={{
               duration: 0.7,
               delay: 0.3,
             }}
           >
-            We would love to welcome you. Find us, call us or message us on
-            WhatsApp.
+            Find us at either of our two convenient nursery
+            locations and explore our beautiful collection of plants.
           </motion.p>
+
         </motion.div>
+
       </section>
 
-      {/* LOCATION + CONTACT */}
-      <section className="section">
+
+      {/* =====================================
+          LOCATIONS
+      ===================================== */}
+
+      <section className="section locations-section">
+
         <div className="container">
-          <div className="location-layout">
 
-            {/* CONTACT INFO */}
-            <motion.div
-              className="location-info"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-            >
-              {infoItems.map((item, i) => {
-                const Icon = item.icon;
+          <div className="location-section-heading">
 
-                return (
-                  <motion.div
-                    className="location-info__item"
-                    key={i}
-                    variants={itemVariants}
-                    whileHover={{
-                      x: 5,
-                    }}
-                    transition={{
-                      duration: 0.25,
-                      ease: "easeOut",
-                    }}
-                  >
-                    <motion.div
-                      className="location-info__icon"
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 5,
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 250,
-                      }}
-                    >
-                      <Icon size={22} />
-                    </motion.div>
+            <span>OUR LOCATIONS</span>
 
-                    <div>
-                      <h3 className="location-info__label">
-                        {item.label}
-                      </h3>
+            <h2>
+              Two Locations.
+              <br />
+              One Love for Nature.
+            </h2>
 
-                      <p className="location-info__value">
-                        {item.value}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-
-            {/* MAP */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 40,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-            >
-              <MapLocation />
-            </motion.div>
+            <p>
+              Visit the Sri Jithendra Nursery location that is
+              convenient for you.
+            </p>
 
           </div>
+
+
+          <div className="branches-grid">
+
+            {branches.map((branch, index) => (
+
+              <motion.article
+                className="branch-card"
+                key={branch.id}
+
+                variants={branchVariants}
+
+                initial="hidden"
+
+                whileInView="visible"
+
+                viewport={{
+                  once: true,
+                  amount: 0.15,
+                }}
+
+                whileHover={{
+                  y: -8,
+                }}
+              >
+
+                {/* HEADER */}
+
+                <div className="branch-card__header">
+
+                  <div className="branch-number">
+                    0{index + 1}
+                  </div>
+
+                  <div>
+
+                    <span className="branch-label">
+                      {branch.subtitle}
+                    </span>
+
+                    <h3>
+                      {branch.name}
+                    </h3>
+
+                  </div>
+
+                </div>
+
+
+                {/* MAP */}
+
+                <div className="branch-map">
+
+                  <iframe
+                    title={`${branch.name} Map`}
+                    src={branch.mapUrl}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+
+                </div>
+
+
+                {/* DETAILS */}
+
+                <motion.div
+                  className="branch-details"
+
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.1,
+                      },
+                    },
+                  }}
+
+                  initial="hidden"
+                  whileInView="visible"
+
+                  viewport={{
+                    once: true,
+                  }}
+                >
+
+                  {/* ADDRESS */}
+
+                  <motion.div
+                    className="branch-detail"
+                    variants={itemVariants}
+                  >
+
+                    <div className="branch-detail__icon">
+                      <MapPin size={20} />
+                    </div>
+
+                    <div>
+
+                      <span>
+                        Address
+                      </span>
+
+                      <p>
+                        {branch.address}
+                      </p>
+
+                    </div>
+
+                  </motion.div>
+
+
+                  {/* PHONE */}
+
+                  <motion.div
+                    className="branch-detail"
+                    variants={itemVariants}
+                  >
+
+                    <div className="branch-detail__icon">
+                      <Phone size={20} />
+                    </div>
+
+                    <div>
+
+                      <span>
+                        Phone
+                      </span>
+
+                      <a
+                        href={`tel:${branch.phone.replace(
+                          /\D/g,
+                          ""
+                        )}`}
+                      >
+                        {branch.phone}
+                      </a>
+
+                    </div>
+
+                  </motion.div>
+
+
+                  {/* EMAIL */}
+
+                  <motion.div
+                    className="branch-detail"
+                    variants={itemVariants}
+                  >
+
+                    <div className="branch-detail__icon">
+                      <Mail size={20} />
+                    </div>
+
+                    <div>
+
+                      <span>
+                        Email
+                      </span>
+
+                      <a
+                        href={`mailto:${branch.email}`}
+                      >
+                        {branch.email}
+                      </a>
+
+                    </div>
+
+                  </motion.div>
+
+
+                  {/* HOURS */}
+
+                  <motion.div
+                    className="branch-detail"
+                    variants={itemVariants}
+                  >
+
+                    <div className="branch-detail__icon">
+                      <Clock size={20} />
+                    </div>
+
+                    <div>
+
+                      <span>
+                        Opening Hours
+                      </span>
+
+                      <p>
+                        {branch.hours}
+                      </p>
+
+                    </div>
+
+                  </motion.div>
+
+                </motion.div>
+
+
+                {/* ACTION BUTTONS */}
+
+                <div className="branch-actions">
+
+                  <motion.a
+                    href={`tel:${branch.phone.replace(
+                      /\D/g,
+                      ""
+                    )}`}
+
+                    className="branch-btn branch-btn--call"
+
+                    whileHover={{
+                      scale: 1.03,
+                    }}
+
+                    whileTap={{
+                      scale: 0.97,
+                    }}
+                  >
+
+                    <Phone size={18} />
+
+                    Call Now
+
+                  </motion.a>
+
+
+                  <motion.a
+                    href={branch.directionsUrl}
+
+                    target="_blank"
+
+                    rel="noopener noreferrer"
+
+                    className="branch-btn branch-btn--direction"
+
+                    whileHover={{
+                      scale: 1.03,
+                    }}
+
+                    whileTap={{
+                      scale: 0.97,
+                    }}
+                  >
+
+                    <Navigation size={18} />
+
+                    Get Directions
+
+                  </motion.a>
+
+                </div>
+
+              </motion.article>
+
+            ))}
+
+          </div>
+
         </div>
+
       </section>
 
+
       {/* CTA */}
+
       <CTASection />
+
     </>
   );
 }

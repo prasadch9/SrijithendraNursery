@@ -133,3 +133,178 @@
   .contact-form__row { grid-template-columns: 1fr; }
   .contact-form-wrap { padding: 28px 20px; }
 }
+@media (max-width: 500px) {
+
+  .contact-form__row { grid-template-columns: 1fr; }
+
+  .contact-form-wrap { padding: 28px 20px; }
+
+}
+
+
+/* =========================================
+   TWO NURSERY LOCATIONS
+========================================= */
+
+.contact-locations {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+  margin-bottom: 22px;
+}
+
+.contact-location-card {
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid rgba(45, 106, 79, 0.12);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(27, 58, 43, 0.12);
+}
+
+.contact-location-card h3 {
+  margin: 0 0 18px;
+  font-size: 1.05rem;
+  color: var(--primary-dark);
+}
+
+.contact-location-card .contact-info__item {
+  margin-bottom: 16px;
+}
+
+.contact-location-card .contact-info__text {
+  min-width: 0;
+}
+
+.contact-location-card .contact-info__text p,
+.contact-location-card .contact-info__text a {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.contact-location-card .contact-info__text a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-location-card .contact-info__text a:hover {
+  text-decoration: underline;
+}
+
+/* Get Directions */
+
+.contact-location-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 2px;
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.contact-location-directions:hover {
+  transform: translateX(3px);
+  text-decoration: underline;
+}
+
+/* =========================================
+   COMMON EMAIL & OPENING HOURS
+========================================= */
+
+.contact-common-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.contact-common-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-common-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--primary-dark);
+}
+
+.contact-common-item h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.contact-common-item p,
+.contact-common-item a {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.contact-common-item a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-common-item a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .contact-locations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .contact-locations {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-location-card {
+    padding: 20px;
+  }
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .contact-location-card {
+    padding: 18px;
+  }
+
+  .contact-location-card h3 {
+    font-size: 1rem;
+  }
+
+}
+

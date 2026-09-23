@@ -1,11 +1,12 @@
 
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Leaf, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { site } from "../data/site";
 import "../styles/Navbar.css";
+import logo from "../assets/logo.jpg";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -78,18 +79,19 @@ export default function Navbar() {
               aria-label={site.name}
             >
               <motion.span
-                className="navbar__logo-icon"
-                whileHover={{
-                  rotate: 12,
-                  scale: 1.1,
+              className="navbar__logo-icon"
+              whileHover={{ scale: 1.08 }}
+               transition={{
+               type: "spring",
+                stiffness: 300,
                 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                }}
-              >
-                <Leaf size={22} />
-              </motion.span>
+                >
+                  <img
+                  src={logo}
+                  alt="Sri Jithendra Nursery Logo"
+                  className="navbar__logo-image"
+                  />
+                  </motion.span>
 
               <span className="navbar__logo-text">
                 {site.name}
